@@ -1,0 +1,5 @@
+name: CommandBlocker
+version: '${project.version}'
+main: com.ashkiano.commandblocker.CommandBlocker
+api-version: '1.16'
+authors: [ AshKiano ]

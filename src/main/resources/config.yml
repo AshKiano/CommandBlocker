@@ -1,0 +1,3 @@
+blocked-commands:
+  - "gamemode"
+  - "anothercommand"
