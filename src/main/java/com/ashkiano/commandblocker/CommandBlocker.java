@@ -12,6 +12,8 @@ public class CommandBlocker extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new CommandListener(this), this);
 
         getLogger().info("CommandBlocker has been enabled!");
+
+        Metrics metrics = new Metrics(this, 21290);
     }
 
     @Override
