@@ -1,5 +1,7 @@
 package com.ashkiano.commandblocker;
 
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.json.JSONObject;
 
@@ -27,6 +29,21 @@ public class CommandBlocker extends JavaPlugin {
     @Override
     public void onDisable() {
         getLogger().info("CommandBlocker has been disabled!");
+    }
+
+    @Override
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        if (command.getName().equalsIgnoreCase("blockcommandsreload")) {
+            if (sender.hasPermission("blockcommands.reload")) {
+                reloadConfig();
+                sender.sendMessage("Configuration reloaded.");
+                return true;
+            } else {
+                sender.sendMessage("You do not have permission to use this command.");
+                return true;
+            }
+        }
+        return false;
     }
 
     private void checkForUpdates() {
@@ -68,5 +85,4 @@ public class CommandBlocker extends JavaPlugin {
             this.getLogger().warning("Failed to check for updates. Error: " + e.getMessage());
         }
     }
-
 }

@@ -3,3 +3,13 @@ version: '${project.version}'
 main: com.ashkiano.commandblocker.CommandBlocker
 api-version: '1.16'
 authors: [ AshKiano ]
+commands:
+  blockcommandsreload:
+    description: Reloads the CommandBlocker configuration
+permissions:
+  blockcommands.bypass:
+    description: Allows a player to execute blocked commands
+    default: false
+  blockcommands.reload:
+    description: Allows a player to reload the plugin's configuration
+    default: op

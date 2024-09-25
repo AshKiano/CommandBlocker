@@ -15,9 +15,10 @@ public class CommandListener implements Listener {
     public void onPlayerCommandPreprocess(PlayerCommandPreprocessEvent event) {
         String command = event.getMessage().substring(1).split(" ")[0];
 
-        if (plugin.getConfig().getStringList("blocked-commands").contains(command)) {
+        if (!event.getPlayer().hasPermission("blockcommands.bypass") && plugin.getConfig().getStringList("blocked-commands").contains(command)) {
             event.setCancelled(true);
-            event.getPlayer().sendMessage("This command is blocked by the server!");
+            String blockedMessage = plugin.getConfig().getString("blocked-command-message", "This command is blocked by the server!");
+            event.getPlayer().sendMessage(blockedMessage);
         }
     }
 }

@@ -1,3 +1,5 @@
 blocked-commands:
   - "gamemode"
   - "anothercommand"
+
+blocked-command-message: "This command is blocked by the server!"
